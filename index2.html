@@ -17,7 +17,7 @@
       background: #404040;
     }
     
-    .bg-video, .cover {
+     .cover {
       position: absolute;
       top: 0;
       left: 0;
@@ -29,14 +29,35 @@
       background: rgba(0, 0, 0, .5);
     }
 
-    .ytp-watermark, .ytp-title .ytp-chrome-top-buttons {
-      display: none !important;
-    }
-
     header {
       /* remove when YT got its brain back */
       margin-top: -56px;
     }
+    .full {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .bg-wrapper {
+      position: absolute;
+      transform: translate3d(0px, 0px, 0px);
+      z-index: 0;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .bg-wrapper .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+    }
+
 
     /* ----------------- temp -----------------*/
     clearfix::after {
@@ -103,14 +124,10 @@
   
   <div class="page__header--large">
 
-    <!-- <div class="bg-video"> -->
-    <iframe 
-      class="bg-video"
-      width="560" 
-      height="315" 
-      src="https://www.youtube.com/embed/Iz2U-SHQ7_w?autoplay=1&controls=0&loop=1&mute=1&cc_load_policy=1" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; encrypted-media; gyroscope;"></iframe>
+    <div class="bg-wrapper full">
+      <video class="bg-video" src="https://static1.gotokeep.com/homepage/5s.mp4" autoplay muted loop></video>
+    </div>
+
 
       <div class="cover clearfix">
 
@@ -133,7 +150,6 @@
   </div>
   
   <button>Change the Header to FUll Screen</button>
-  <a href="./index2.html">to new design</a>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
